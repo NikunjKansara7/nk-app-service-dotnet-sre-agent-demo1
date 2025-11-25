@@ -24,7 +24,7 @@ app.MapGet("/", async context =>
 
     context.Response.Cookies.Append("crashCount", pressCount.ToString(), new CookieOptions { Expires = DateTimeOffset.Now.AddHours(1) });
 
-    if (injectError && !safeMode && buttonPressed && crashCount > 5)
+    if (injectError && !safeMode && buttonPressed && pressCount > 5)
         throw new Exception("Simulated error after 5 button clicks!");
 
     string buttonColor = injectError ? "#22c55e" : "#22c55e";
@@ -104,7 +104,7 @@ app.MapGet("/", async context =>
     <div class='container'>
         <div class='number' id='counter'>{pressCount}</div>
         <form method='GET' style='display:inline'>
-            <input type='hidden' name='crash' value='1' />
+            <input type='hidden' name='crashCount' value='1' />
             <button id='incrementBtn' type='submit'>Increment</button>
         </form>
         <form method='GET' style='display:inline'>
@@ -121,5 +121,6 @@ app.MapGet("/", async context =>
 });
 
 app.Run();
+
 
 
