@@ -104,7 +104,7 @@ app.MapGet("/", async context =>
     <div class='container'>
         <div class='number' id='counter'>{pressCount}</div>
         <form method='GET' style='display:inline'>
-            <input type='hidden' name='crashCount' value='1' />
+            <input type='hidden' name='crash' value='1' />
             <button id='incrementBtn' type='submit'>Increment</button>
         </form>
         <form method='GET' style='display:inline'>
@@ -121,6 +121,7 @@ app.MapGet("/", async context =>
 });
 
 app.Run();
+
 
 
 
